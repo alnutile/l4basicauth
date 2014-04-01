@@ -28,6 +28,10 @@ Route::post('/authenticate', array('before' => 'basic.once', function()
     return "You are authenticating @ test auth";
 }));
 
+Route::get('/', function() {
+    return Redirect::to('/authenticated');
+});
+
 Route::get('auth', 'Tappleby\AuthToken\AuthTokenController@index');
 Route::post('auth', 'Tappleby\AuthToken\AuthTokenController@store');
 Route::delete('auth', 'Tappleby\AuthToken\AuthTokenController@destroy');
